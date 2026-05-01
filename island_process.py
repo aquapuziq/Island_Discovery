@@ -76,6 +76,14 @@ def build_graph(segments):
         gr[end_v].append((start_v, path[::-1]))
     return gr
 
+def group_by_type(features):
+    groups = defaultdict(list)
+    for feat in features:
+        if feat["geometry"]["type"] == "LineString":
+            type_obj = feat["properties"]["type"]
+            groups[type_obj].append(feat["geometry"]["coordinates"])
+    return groups
+
 def find_islands(segments):
     islands = []
     graph = build_graph(segments)
@@ -88,28 +96,9 @@ def find_islands(segments):
             continue
     return islands
 
-
-segments_solo = [
-    [[0,0], [0,1]],
-    [[0,1], [1,1], [1,0], [0,0]]
-]
-
-segments = [
-    [[0, 0], [0, 1]],
-    [[0, 1], [1, 1]],
-    [[1, 1], [0, 0]],
-
-    [[5, 5], [5, 6]],
-    [[5, 6], [6, 6]],
-    [[6, 6], [5, 5]],
-
-    [[10, 10], [10, 11]],
-    [[10, 11], [11, 11]],
-    [[11, 11], [10, 10]],
-]
-
-tmp_check_solo = find_islands(segments_solo)
-print(tmp_check_solo)
-
-tmp_check = find_islands(segments)
-print(tmp_check)
+def islands_groups(groups):
+    islands_gr = defaultdict(list)
+    for key, val in groups.items():
+        islands = find_islands(val)
+        islands_gr[key].append(islands)
+    return islands_gr
