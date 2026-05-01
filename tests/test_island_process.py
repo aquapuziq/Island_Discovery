@@ -66,5 +66,5 @@ def test_islands_groups_mixed():
     res = islands_groups(groups)
     assert "a" in res
     assert len(res["a"]) == 1
-    assert res["noise"] == [[]]
-    assert res["a"] == [[[(0, 1), (1, 1), (1, 0), (0, 0), (0, 1)]]]
+    assert res["noise"] == []
+    assert res["a"] == [[(0, 1), (1, 1), (1, 0), (0, 0), (0, 1)]]

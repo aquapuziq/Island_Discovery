@@ -100,5 +100,5 @@ def islands_groups(groups):
     islands_gr = defaultdict(list)
     for key, val in groups.items():
         islands = find_islands(val)
-        islands_gr[key].append(islands)
+        islands_gr[key].extend(islands)
     return islands_gr
