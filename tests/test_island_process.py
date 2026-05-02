@@ -25,7 +25,7 @@ def test_find_islands():
     assert check_tmp[0] == [(0, 1), (1, 1), (1, 0), (0, 0), (0, 1)]
 
 def test_group_by_type_from_json():
-    with open("test_islands.json") as file:
+    with open("tests/test_islands.json") as file:
         data = json.load(file)
     groups = group_by_type(data["features"])
     assert groups == {'a': [[[0, 0], [0, 1]], [[0, 1], [1, 1], [1, 0], [0, 0]]], 'noise': [[[5, 5], [6, 6]]]}

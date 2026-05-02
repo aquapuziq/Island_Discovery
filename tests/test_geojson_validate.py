@@ -2,7 +2,7 @@ import json
 from head.geojson_validate import validate_features
 
 def test_validate_features():
-    with open("test_islands.json") as file:
+    with open("tests/test_islands.json") as file:
         data = json.load(file)
     assert validate_features(data) == True
 
