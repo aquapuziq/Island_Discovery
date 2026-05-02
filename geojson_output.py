@@ -6,9 +6,12 @@ def build_boundaries(groups):
     polygons = []
     for key, val in groups.items():
         for v in val:
-            polygons.append(Polygon(v))
-        if not polygons:
-            return None
+            poly = Polygon(v)
+            if not poly.is_valid:
+                poly = poly.buffer(0)
+            polygons.append(poly)
+    if not polygons:
+        return None
 
     merged = unary_union(polygons)
     hull = merged.convex_hull
@@ -39,6 +42,4 @@ def linestring_to_polygon(features):
         }
         output["features"].append(feature)
     return output
-
-
 
