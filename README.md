@@ -119,4 +119,5 @@ I used Claude Sonet 4.6 web to understand which technology stack to use, for exa
 3) I also didn't know about Hierholzer's algorithm for determining whether a graph is an Euler circuit.
 4) Understanding the GeoJSON structure.
 5) A quick search for relevant resources and libraries to study how the above works.
+
 All the code was written by me, except for fixing an issue with coordinate intersection and the resulting lack of a boundary polygon (geojson_output.py function build_boundaries and MultiPoint method).
