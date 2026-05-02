@@ -1,5 +1,5 @@
 import json
-from geojson_validate import validate_features
+from head.geojson_validate import validate_features
 
 def test_validate_features():
     with open("test_islands.json") as file:

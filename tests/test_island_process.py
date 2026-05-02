@@ -1,4 +1,4 @@
-from island_process import build_graph, is_island, find_islands, group_by_type, islands_groups
+from head.island_process import build_graph, is_island, find_islands, group_by_type, islands_groups
 import json
 
 def test_build_graph():

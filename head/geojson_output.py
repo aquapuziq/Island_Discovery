@@ -1,4 +1,4 @@
-from island_process import islands_groups, group_by_type
+from head.island_process import islands_groups, group_by_type
 from shapely.geometry import MultiPoint
 
 def build_boundaries(groups):

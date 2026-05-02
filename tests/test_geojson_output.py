@@ -1,5 +1,5 @@
 import json
-from geojson_output import linestring_to_polygon
+from head.geojson_output import linestring_to_polygon
 
 def test_linestring_to_polygon():
     with open("test_islands.json") as file:

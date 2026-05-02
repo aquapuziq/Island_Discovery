@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request, HTTPException
-from geojson_validate import validate_features
-from geojson_output import linestring_to_polygon
+from head.geojson_validate import validate_features
+from head.geojson_output import linestring_to_polygon
 
 app = FastAPI()
 
