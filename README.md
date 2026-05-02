@@ -18,10 +18,10 @@ discovered islands is emitted with `{"class": "boundaries"}`.
 
 ```
 Island_Discovery/
-1) head/
+1) head/                # all logic
     island_process.py   # graph building, cycle detection, Hierholzer algorithm (Eulerian circuit)
     geojson_output.py   # polygon assembly, boundaries building
-    geojson_validate.py #GeoJSON format validation
+    geojson_validate.py # GeoJSON format validation
 2) samples/             # sample GeoJSON (and JSON) input files
 3) tests/               # pytest unit-tests 
 4) app.py               # FastAPI application
