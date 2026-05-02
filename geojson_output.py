@@ -1,23 +1,21 @@
 from island_process import islands_groups, group_by_type
-from shapely.geometry import Polygon
-from shapely.ops import unary_union
+from shapely.geometry import MultiPoint
 
 def build_boundaries(groups):
     polygons = []
     for key, val in groups.items():
         for v in val:
-            poly = Polygon(v)
-            if not poly.is_valid:
-                poly = poly.buffer(0)
-            polygons.append(poly)
+            polygons.extend(v)
     if not polygons:
         return None
 
-    merged = unary_union(polygons)
-    hull = merged.convex_hull
+    hull = MultiPoint(polygons).convex_hull
+    if hull.geom_type != 'Polygon':
+        return None
     return list(hull.exterior.coords)
 
 def linestring_to_polygon(features):
+    print("linestring_to_polygon called")
     output = {
         "type": "FeatureCollection",
         "features": [
